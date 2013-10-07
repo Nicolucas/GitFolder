@@ -1,0 +1,11 @@
+#Cuenta lo de las vocales
+#Importa lo que necesita
+import sys
+
+
+#Lee los archivos (el input)
+input=open(sys.argv[2], 'r')
+c = f.read(1)
+while len(c) > 0:
+    if len(c.strip()) > 0: print c,
+    c = f.read(1)

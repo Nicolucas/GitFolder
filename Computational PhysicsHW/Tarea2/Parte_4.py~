@@ -1,0 +1,11 @@
+import glob, sys, codecs
+lista_arc=[]
+lista_arc=glob.glob('*')
+
+for dunite in lista_arc:
+    websterite=codecs.open(dunite,'r',u'utf8')
+    lherzelite=websterite.read()
+    harzburguite=lherzelite.splitlines()
+    num=len(harzburguite)
+
+    print dunite+" --->  "+str(num)

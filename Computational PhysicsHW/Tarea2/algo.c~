@@ -1,0 +1,50 @@
+/*
+  Using some mathematical operations in math.h
+*/
+#include <stdio.h>
+#include <math.h>
+#define RAIZ "0.5"
+float calc_pot(float a,float b,float c,float d,float e,float f);
+int main(void){
+  float a;
+  float b;
+  float c;
+  
+  float d;
+  float e;
+  float f;
+
+  a = 1.0;
+  b = 10.0;
+  c = 5.0;
+
+  d = 1.0;
+  e = 10.0;
+  f = 0.0;
+float g=calc_pot(a,b,c,d,e,f);
+  printf("%f %f %f \n", a , b, c);
+  printf("%f %f %f \n", d , e, f);
+printf("%f\n",g);
+  return 0;
+}
+
+float calc_pot(float a,float b,float c,float d,float e,float f){
+    float resultado;
+    float delta_x,delta_y,delta_z,potx,poty,potz,denominador,raiz,den_comp;
+
+
+	 delta_x=a-d;
+	 delta_y=b-e;
+	 delta_z=c-f;
+
+	 potx = delta_x * delta_x;
+	 poty = delta_y * delta_y;
+	 potz = delta_z * delta_z;
+
+	 denominador=potx+poty+potz;
+	 den_comp=pow(denominador,RAIZ);
+
+	 resultado=1/(den_comp);
+	 return resultado;
+}
+

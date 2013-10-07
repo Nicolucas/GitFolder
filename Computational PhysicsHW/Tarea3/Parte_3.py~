@@ -1,0 +1,29 @@
+import sys, codecs,string,os
+
+
+#Entrada
+n_args=len(sys.argv)
+if n_args>2:
+    print "Existe mas de un argumento"
+    sys.exit()
+if n_args<2:
+    print "Se necesita un argumento"
+    sys.exit()
+
+archivo =codecs.open(sys.argv[1],"r",u"utf8")
+archivo_r= archivo.read()
+num_caracteres=len(archivo_r)
+
+#CHECKPOINT
+#filtra, lentamente...... meh
+
+l_archivo=archivo_r.lower()
+archivos_1=l_archivo.replace(u'\xe1','a')
+archivos_2=archivos_1.replace(u'\xe9','e')
+archivos_3=archivos_2.replace(u'\xed','i')
+archivos_4=archivos_3.replace(u'\xf3','o')
+archi=archivos_4.replace(u'\xfa','u')
+
+
+#Checkpoint
+

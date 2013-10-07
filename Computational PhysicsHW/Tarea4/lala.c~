@@ -1,0 +1,9 @@
+#include <stdio.h>
+#include <gsl/gsl_blas.h>
+
+int
+main (void)
+{
+ Original=gsl_matrix_alloc(10,10);
+  return 0;  
+}

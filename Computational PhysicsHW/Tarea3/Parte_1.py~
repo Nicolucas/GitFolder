@@ -1,0 +1,57 @@
+import sys,codecs,string, os
+    
+#Variables
+a=0
+e=0
+i=0
+o=0
+u=0
+
+#Entrada
+n_args=len(sys.argv)
+if n_args>2:
+    print "Existe mas de un argumento"
+    sys.exit()
+if n_args<1:
+    print "Se necesita un argumento"
+    sys.exit()
+
+archivo =codecs.open(sys.argv[1],"r",u"utf8")
+archivo_r= archivo.read()
+num_caracteres=len(archivo_r)
+
+#CHECKPOINT
+#filtra, lentamente... debi usar una lista... meh
+
+l_archivo=archivo_r.lower()
+archivos_1=l_archivo.replace(u'\xe1','a')
+archivos_2=archivos_1.replace(u'\xe9','e')
+archivos_3=archivos_2.replace(u'\xed','i')
+archivos_4=archivos_3.replace(u'\xf3','o')
+archivos_5=archivos_4.replace(u'\xfa','u')
+archi=archivos_5
+
+
+#Prueba
+
+#print archi
+#arc=l_archivo.split()
+#print arc
+
+#CHECKPOINT
+
+
+a = archi.count('a')
+e = archi.count('e')
+i = archi.count('i')
+o = archi.count('o')
+u = archi.count('u')
+
+print("numero de vocales")
+print("a = " + str(a))
+print("e = " + str(e))
+print("i = " + str(i))
+print("o = " + str(o))
+print("u = " + str(u))
+archivo.close()
+sys.exit()

@@ -1,0 +1,13 @@
+import glob, sys
+lista_arc=[]
+lista_arc=glob.glob('*')
+
+for dunite in lista_arc:
+    websterite=open(dunite,'r')
+    if !websterite:
+        sys.exit()
+    lherzelite=websterite.read()
+    harzburguite=lherzelite.splitlines()
+    num=len(harzburguite)
+
+    print dunite+" --->  "+str(num)

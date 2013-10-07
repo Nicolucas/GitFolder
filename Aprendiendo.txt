@@ -1,0 +1,63 @@
+el main(){
+} es imprescindible, contiene las instrucciones
+
+
+Cada instruccion usa un ;
+
+Despues, al colocar cc y el nombre del archivo, se creara un archivo .out
+el cual estara en verde que significa que tiene permiso de ejecucion
+
+se puede correr el *.out con ./
+
+para correrlo, debe ser usado ./
+
+>>>>> al final del texto, \n sirve para colocar un espacio
+
+la opcion -o sirve para crear la opcion de ser ejecutable
+----------------------------------------------------------------------
+Aritmetica
+#include <stdio.h>
+es para decir que imprima algo mas adelante
+
+int main(){ debe devolver un entero
+
+void para no meterle nada
+
+float es para reales
+
+%d es el formato, (se colocara un entero)
+
+Tener cuidado con el printF!!!
+
+---------------------------------------------------------------------
+Para incluir potenciacion
+#include(math.h)
+
+pow(a,b)=a^b
+
+(?) para compilar ahora que usa varias librerias;
+cc -lm *.cc
+
+double: numeros mas grandes
+float:soy un inutil que no gasta tantos bits :D
+
+-----------------------------------------------------------------
+
+%e para notacion exponencial
+%s strings
+char s[100] el numero de strings posibles para usar
+-----------------------------------------------------------------
+
+%define PI %valor% 
+
+-----------------------------------------------------------------
+
+Arrays
+
+
+locacion dinamica de memoria
+
+int *array_int; guarda direcciones
+
+recordad, es posible usar elementos de un array donde no se reservo espacio
+

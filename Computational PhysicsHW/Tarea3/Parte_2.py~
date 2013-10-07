@@ -1,0 +1,16 @@
+import sys
+
+#Argumentos
+n_args=len(sys.argv)
+if n_args>2:
+    print "Existe mas de un argumento"
+    sys.exit()
+if n_args<1:
+    print "Se necesita un argumento"
+    sys.exit()
+
+#Condiciones sobre el número
+numero=sys.argv[1]
+if numero>=10000000:
+    print "el numero debe ser menor que 10E6"
+    sys.close()

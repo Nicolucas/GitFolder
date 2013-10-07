@@ -1,0 +1,183 @@
+#include <stdio.h>
+#include <gsl/gsl_blas.h>
+#include <stdlib.h>
+#include <math.h>
+
+//Main------------------------------------------------------------------
+void transpose(float * m, int n_x, int n_y);
+void print_matrix(float * m, int n_x, int n_y);
+
+int main(int argc, char **argv)
+{
+  FILE *input;
+  int num_lineas;
+  int i,j;
+  int var;
+  int grado;
+
+/*---------------------------------------------------------
+Verifica cuales archivos fueron usados como input y se asegura de que solo haya cargado uno.
+-----------------------------------------------------------*/
+  printf("Este programa se ejecutó con %d argumento(s):\n",argc-1);
+  for(i=1;i<argc;i++){
+    printf("%s\n", argv[i]);
+  }
+  if(argc!=3){
+    printf("se necesitan dos argumentos además del nombre del ejecutable!,\n el archivo y el grado del polinomio.\n EXIT!\n");
+    exit(1);
+    }
+    else{
+      printf("El archivo a usar es %s\n", argv[1]);
+      grado=atoi(argv[2]);
+      printf("El grado del polinomio a ajustar es %d\n", grado);
+    }
+//--------------------------------------------------------
+    input=fopen(argv[1],"r");
+    if(!input){
+      printf("surgió un problema abriendo el archivo\n");
+      exit(1);
+    }
+/*---------------------------------------------------------
+toma como archivo base el primer argumento y cuenta sus lineas
+-----------------------------------------------------------*/
+    num_lineas=0;
+    while ((var = fgetc(input)) != EOF){
+      if (var =='\n')
+	++num_lineas;
+    }
+
+    printf("Número de lineas del archivo:\n -->%d\n",num_lineas); 
+
+/*---------------------------------------------------------
+Data allocation
+-----------------------------------------------------------*/ 
+    float *x;
+    float *d;
+ 
+   
+    x = malloc(num_lineas * sizeof(float));
+    d = malloc(num_lineas * sizeof(float));
+ 
+
+    /*   if(!x||!d){
+      printf("Algo salió mal con la reserva de espacio para los arrays x o y\n");
+      exit(1);
+      }*/
+/*---------------------------------------------------------
+Registro de Datos en los arrays
+-----------------------------------------------------------*/
+    rewind(input);
+    for(j=0;j<num_lineas;j++){
+      fscanf(input, "%f %f",&x[j],&d[j]);
+
+
+      if(!x[j]||!d[j]){
+	printf("Existe una linea vacia o hay un problema con la linea %d en el archivo\n",j);
+	exit(1);
+     } 
+    }
+
+
+
+
+
+//Checkpoint 
+/*---------------------------------------------------------
+Data allocation de las matrices:
+|y| =|G| |a|
+-----------------------------------------------------------*/ 
+
+    int n_x=grado;
+    int n_y=num_lineas;
+    int k,l,m,n,pos;
+
+    double *a;
+    double *G;
+    double *y;
+
+    a = malloc(n_x *  sizeof(double));
+    G = malloc(n_y * n_x * sizeof(double));
+    y = malloc(n_y *  sizeof(double));
+
+    for(n=0;n<=n_x;n++){
+      y[n]=d[n];
+    }
+/*---------------------------------------------------------
+Creacion de la matriz G como lista:
+1,x,x².....x^grado
+1,x2,x2²...x2^grado
+.
+.
+.
+
+-----------------------------------------------------------*/
+    for (k=0;k<n_y;k++){
+      for(l=0;l<n_x;l++){
+	float entrada=1.0;
+	pos=l+(n_x*k);
+	if(l!=0){
+	  float numbuh=x[k];
+	  for(m=0;m<l;m++){
+	    entrada=entrada*numbuh;
+	  }
+	}
+	G[pos]=entrada;
+	//printf("%f  ",G[pos]);
+      }
+      // printf("\n");
+    }
+
+
+
+//Checkpoint - hay matriz dependiente del grado
+/*---------------------------------------------------------
+pasarlo todo a matrices en gsl
+A=BC
+-----------------------------------------------------------*/
+    for (k=0;k<n_x;k++){
+      a[k]=0.0;
+    }
+ 
+    gsl_matrix_view A = gsl_matrix_view_array(y, n_y, 1);
+    gsl_matrix_view B = gsl_matrix_view_array(G, n_y, n_x);
+    gsl_matrix_view C = gsl_matrix_view_array(a, n_x, 1);
+    
+    
+    print_matrix(G,n_x,n_y);
+
+/*---------------------------------------------------------
+FIN
+-----------------------------------------------------------*/   
+    fclose(input);
+
+    return 0;
+}
+
+void transpose(float * m, int n_x, int n_y){
+  int i,j,pos_ij, pos_ji;
+  float tmp;
+/*Prints to screen*/
+  for(i=0;i<n_x;i++){
+    for(j=i;j<n_y;j++){
+      pos_ij = i + (n_x * j);
+      pos_ji = j + (n_x * i);
+      tmp = m[pos_ij];
+      m[pos_ij] = m[pos_ji];
+      m[pos_ji] = tmp;
+    }
+  }
+}
+
+void print_matrix(float * m, int n_x, int n_y){
+  int i,j,pos;
+  fprintf(stdout, "\n");
+/*Prints to screen*/
+  for(i=0;i<n_x;i++){
+    for(j=0;j<n_y;j++){
+      pos = i + (n_x * j);/*position in the array*/
+      fprintf(stdout, " %f ",m[pos]);
+    }
+    fprintf(stdout, "\n");
+  }
+  fprintf(stdout, "\n");
+}
