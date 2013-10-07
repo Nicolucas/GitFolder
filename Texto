@@ -22,6 +22,7 @@ Clonar:
 		sacar vainas del repositorio o actualizar
 
 Eliminar directorios del repositorio
+
 	git rm -r one-of-the-directories
 	git commit -m "Remove duplicated directory"
 	git push origin master
