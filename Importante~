@@ -1,0 +1,14 @@
+!: escribir Que hace la funcion en comentarios, que toma como entrada, bla bla bla, que devuelve
+EX
+    """
+    Uses raw data to compute the power spectrum.
+    Input: 
+    - data: numpy array of shape [n:m]. Raw data.   
+    Output:
+    - fft_freq: numpy array of shape [n,m]. Frequencies for each signal.
+    - fft_amplitides: numpy complex array of shape[n,m]. Fourier amplitudes.
+    """
+
+escribir autores
+
+

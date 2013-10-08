@@ -1,0 +1,27 @@
+crear repositorio:
+Clonar:
+	git clone https....
+		clonar el repositorio
+	git status
+		
+	git add archivo
+		para seguir el archivo
+	git commit
+		estampa temporal, colocar cuando fue esa mkada
+
+	git config --global user.email <correo>
+	git config --global user.name <nombre>
+		le da un nombre y correo (firmas)
+	git push
+		manda todo al repositorio on-line
+
+	git checkout <nombredelarchivo>
+		recupera un archivo del historial del repositorio
+
+	git pull 
+		sacar vainas del repositorio o actualizar
+
+Eliminar directorios del repositorio
+	git rm -r one-of-the-directories
+	git commit -m "Remove duplicated directory"
+	git push origin master
