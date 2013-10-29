@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main(int argc, char **argv)
+{
+int n_point;
+float d_ini,d2_ini;
+
+
+/*---------------------------------------------------------
+separa los datos de entrada y reviza si esta el numero de datos necesario
+-----------------------------------------------------------*/
+printf("Este programa se ejecutó con %d argumento(s):\n",argc-1);
+for(i=1;i<argc;i++){
+printf("%s\n", argv[i]);
+}
+if(argc!=4){
+printf("se necesitan 3 argumentos además del nombre del ejecutable!\n EXIT!\n");
+exit(1);
+}
+
+n_point=argv[1];
+d_ini=argv[2];
+d2_ini=argv[3];
+/*---------------------------------------------------------
+-----------------------------------------------------------*/
+
+
+
+
+
+
+/*---------------------------------------------------------
+FIN
+-----------------------------------------------------------*/   
+    return 0;
+}

@@ -1,0 +1,17 @@
+make -f <el nombre del archivo> 
+en consola, realiza los cambios en el archivo nombrado
+todo se basa en verificar y comparar la novedad del archivo y en caso
+de cumplirse que el requisito es mas antiguo, realiza la accion en UNIX
+
+make solo realiza la primera linea de codigo, si la primera linea depende de otras
+ lineas, las realiza tambien.
+
+compara las cosas que estan separadas por dos puntos <:>
+
+	all: realizar cambios en todo
+	all: archivo 1 // all depende del archivo 1
+	all: archivo 1
+		archivo 1: requerimiento anterior
+
+
+	make -f <archivo> linea_de_codigo // solamente realiza la linea de codigo llamada

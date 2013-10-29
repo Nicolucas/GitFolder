@@ -8,6 +8,14 @@
 
 //Main------------------------------------------------------------------
 
+FILE u1;
+FILE u2;
+
+u1=fopen("out.txt", "r");
+u2=fopen("out2.txt" , "w");
+
+
+//
 int main(int argc, char **argv)
 {
   gsl_matrix *Original;
