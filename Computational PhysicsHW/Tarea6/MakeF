@@ -1,0 +1,29 @@
+all:Grafica1.png
+
+
+Grafica1.png:plots.py Datos5.dat
+	python plots.py IC_output.dat Datos1.dat Datos2.dat Datos3.dat Datos4.dat Datos5.dat
+
+Datos5.dat:Datos4.dat
+	./evolve.x Datos4.dat
+Datos4.dat:Datos3.dat
+	./evolve.x Datos3.dat
+Datos3.dat:Datos2.dat
+	./evolve.x Datos2.dat
+Datos2.dat:Datos1.dat
+	./evolve.x Datos1.dat
+Datos1.dat:evolve.x IC_output.dat
+	./evolve.x IC_output.dat
+
+
+evolve.x:evolve.c
+	cc evolve.c -o evolve.x -lm
+
+IC_output.dat:IC.x
+	./IC.x 20 20 -400 -40 
+
+IC.x:IC.c
+	cc IC.c -o IC.x -lm
+
+clear:
+	rm -f *.x *.dat *.png *.out

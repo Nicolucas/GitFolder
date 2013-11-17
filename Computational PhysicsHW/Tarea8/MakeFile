@@ -1,0 +1,3 @@
+all:Grafica1.png
+Grafica1.png:TryDis.ipynb
+	ipython notebook TryDis.ipynb &
