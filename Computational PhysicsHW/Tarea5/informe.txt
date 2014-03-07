@@ -1,0 +1,20 @@
+Tarea 5 
+Preinforme
+
+
+punto 1 
+
+Parte a)
+¿Hay alguna diferencia en el espectro de potencias de cada señal?
+
+Si, y esto es notable en el ejercicio al graficar los espectros de potencias en escala logaritmica, en especial es importante resaltar la señal numero 20 que mostro una gran diferencia en su espectro de potencias con respecto al de los demas
+
+Parte b)
+¿Comó se comparan las señal reconstruida a partir de original?
+
+al tomar solamente 10 frecuencias del total notamos que el error es de magnitud 3, este error es bastante obvio debido a que el numero de datos tomados es bastante grande y tan pocas señales no seran capaces de reconstruir la original con exactitud, sin embargo si cambiamos la variable "num" por valores mas grandes (menores o iguales a 400)notamos que el x² disminuye y asi mismo la grafica de las diferencias disminuye tambien en amplitud
+
+punto 2
+
+Parte b)
+los espectros de potencias son similares, aunque en las bases de los picos se encuentran las diferencias, las posibles razones se puede explicar por la variacion dada por la interpolacion

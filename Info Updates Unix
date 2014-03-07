@@ -1,0 +1,12 @@
+sudo rm /var/lib/apt/lists/* -vf
+
+sudo apt-get update
+
+<excel exportado .csv>
+==========================================
+sudo apt-get install python-pip
+sudo pip install numpy
+sudo pip install pandas
+
+===========================================
+sudo apt-get install python-pandas
