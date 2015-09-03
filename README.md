@@ -20,3 +20,8 @@ Tareas del periodo 2013-2
 _____________________
 By Jorge N. Hayek
 _____________________
+
+UPDATE
+=======
+para convertir ipython -> PDF
+ipython nbconvert myfile.ipynb --to latex --post PDF
