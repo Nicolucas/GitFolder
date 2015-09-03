@@ -24,4 +24,5 @@ _____________________
 UPDATE
 =======
 para convertir ipython -> PDF
+
 ipython nbconvert myfile.ipynb --to latex --post PDF
