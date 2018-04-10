@@ -26,3 +26,12 @@ Eliminar directorios del repositorio
 	git rm -r one-of-the-directories
 	git commit -m "Remove duplicated directory"
 	git push origin master
+-----------------------------------------------------------------------------------------------------------
+First thing to do is "git pull" to check if its up to date
+run "git branch -name_of_the_brach-" in order to move to the alternate branch
+run "git add -A_or_file"
+run "git commit -m "stamp""
+run "git checkout -master-" in order to move back to the original branch
+Run "git add -A" again
+run "git commit -m ..."
+run "git push"
